@@ -1,10 +1,8 @@
 {{
     config(
         materialized = 'incremental',
-        incremental_strategy = 'merge',
-        unique_key = ['book_ref'],
-        merge_update_columns  = ['total_amount', 'book_date'],
-        on_schema_change='sync_all_columns'
+        incremental_strategy = 'delete+insert',
+        unique_key = ['book_ref']
     )
 }}
 select
